@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SHUHUA × BIFF26 Hashtag Party</title>
+<title>SHUHUA × BIFF2026 Hashtag Party</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+TC:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
@@ -99,7 +99,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .tb-label{font-size:11px; font-weight:700; letter-spacing:.12em; color:var(--muted); margin-bottom:2px !important}
 .tb-gap{margin-top:10px !important}
 .tagline{font-family:"Noto Sans KR",-apple-system,system-ui,sans-serif; font-weight:700; font-size:17px}
-.hashes{color:var(--rose); font-weight:700; word-break:break-word}
+.hashes{white-space:pre-line; color:var(--rose); font-weight:700; word-break:break-word}
 .controls{display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; margin-bottom:16px}
 .seg{display:inline-flex; border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--surface)}
 .seg button{border:0; background:none; font:inherit; font-size:14px; padding:8px 14px; color:var(--muted); cursor:pointer}
@@ -134,6 +134,8 @@ body[data-lang="ko"] .gsec h2, body[data-lang^="zh"] .gsec h2{font-family:inheri
 body[data-lang="ko"] .ticket-film, body[data-lang^="zh"] .ticket-film, body[data-lang="ko"] .ticket-star, body[data-lang^="zh"] .ticket-star{font-family:inherit; font-weight:700; letter-spacing:.01em}
 .gsec ol{margin:0; padding-left:1.6em}
 .gsec li{margin:0 0 8px; padding-left:4px}
+.xtags{margin:8px 0 4px; padding:12px 14px; border:1px solid var(--line); border-radius:12px; background:var(--surface)}
+.xrow{margin:0; color:var(--rose); font-weight:700; font-size:15px; line-height:1.7; word-break:break-word}
 .gsec li::marker{color:var(--rose); font-weight:700}
 
 @media (max-width:520px){
@@ -162,7 +164,7 @@ body[data-lang="ko"] .ticket-film, body[data-lang^="zh"] .ticket-film, body[data
 <body data-lang="en">
 <div class="wrap">
   <div class="topbar">
-    <span class="brand" data-i18n="brand">SHUHUA × BIFF26</span>
+    <span class="brand" data-i18n="brand">SHUHUA × BIFF2026</span>
     <div class="langs" role="group" aria-label="Language">
       <button data-lang="ko">한국어</button>
       <button data-lang="en">EN</button>
@@ -224,9 +226,9 @@ body[data-lang="ko"] .ticket-film, body[data-lang^="zh"] .ticket-film, body[data
 <script>
 const I18N = {
   en:{
-    revealAt:w=>"Stay tuned",
+    revealAt:w=>`Revealed ${w}`,
     xNo:"Didn't open the X app?", xWeb:"Post on the X website",
-    brand:"SHUHUA × BIFF26",
+    brand:"SHUHUA × BIFF2026",
     pWhere:"Where", pWhereVal:"X (Twitter)",
     filmTitle:"Happily Ever After", filmSub:"SHUHUA at the 31st BIFF",
     tabGen:"Comment generator", tabGuide:"Guidelines",
@@ -256,9 +258,9 @@ const I18N = {
     ]
   },
   "zh-Hant":{
-    revealAt:w=>"敬請期待",
+    revealAt:w=>`將於 ${w} 公開`,
     xNo:"沒有跳到 X app？", xWeb:"改用 X 網頁版發文",
-    brand:"舒華 × BIFF26",
+    brand:"舒華 × BIFF2026",
     pWhere:"平台", pWhereVal:"X（推特）",
     filmTitle:"幸福快樂的日子", filmSub:"舒華 × 第31屆釜山國際影展",
     tabGen:"文案產生器", tabGuide:"注意事項",
@@ -288,9 +290,9 @@ const I18N = {
     ]
   },
   "zh-Hans":{
-    revealAt:w=>"敬请期待",
+    revealAt:w=>`将于 ${w} 公开`,
     xNo:"没有跳到 X app？", xWeb:"改用 X 网页版发文",
-    brand:"舒华 × BIFF26",
+    brand:"舒华 × BIFF2026",
     pWhere:"平台", pWhereVal:"X（推特）",
     filmTitle:"幸福快乐的日子", filmSub:"舒华 × 第31届釜山国际电影节",
     tabGen:"文案生成器", tabGuide:"注意事项",
@@ -320,9 +322,9 @@ const I18N = {
     ]
   },
   ko:{
-    revealAt:w=>"곧 공개됩니다",
+    revealAt:w=>`${w} 공개 예정`,
     xNo:"X 앱이 열리지 않았나요?", xWeb:"X 웹에서 올리기",
-    brand:"슈화 × BIFF26",
+    brand:"슈화 × BIFF2026",
     pWhere:"플랫폼", pWhereVal:"X (트위터)",
     filmTitle:"오래오래 행복하게", filmSub:"슈화 × 제31회 부산국제영화제",
     tabGen:"멘트 생성기", tabGuide:"가이드라인",
@@ -683,8 +685,8 @@ function draw(L){
 
 const REVEAL=new Date("2026-10-06T18:00:00+08:00").getTime();
 const dec=b=>new TextDecoder().decode(Uint8Array.from(atob(b),c=>c.charCodeAt(0)));
-const SECRET={tag:"",hash:""};
-const revealed=()=>false;
+const SECRET={tag:dec("7IqI7ZmUIOyYpOuemOyYpOuemCDtlonrs7XtlZjqsowgQklGRg=="),hash:dec("I1NIVUhVQXhCSUZGMjAyNgoj7Jik656Y7Jik656Y7ZaJ67O17ZWY6rKMX+u2gOq1reygnF/siojtmZQ=")};
+const revealed=()=>true;
 let wasRevealed=null;
 function renderTagbox(){
   const r=revealed(), t=I18N[lang];
@@ -770,13 +772,24 @@ function copyText(txt,btn){
   }
 }
 
+const EXTRA_TAGS=[["#BIFF","#부산국제영화제","#부국제"],["#아이들","#idle","#アイドゥル"],["#슈화","#SHUHUA","#舒華","#シュファ"]];
+function copyQuiet(t){
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).catch(()=>fb());} else fb();
+  function fb(){const ta=document.createElement("textarea"); ta.value=t; ta.style.position="fixed"; ta.style.opacity="0"; document.body.append(ta); ta.select(); try{document.execCommand("copy")}catch(e){} ta.remove();}
+}
 function renderGuide(){
   const g=$("#guide"); g.innerHTML="";
-  I18N[lang].guide.forEach(([title,items])=>{
+  I18N[lang].guide.forEach(([title,items],si)=>{
     const s=document.createElement("section"); s.className="gsec";
     const h=document.createElement("h2"); h.textContent=title;
     const ol=document.createElement("ol");
-    items.forEach(x=>{const li=document.createElement("li"); li.textContent=x; ol.append(li)});
+    items.forEach((x,ii)=>{const li=document.createElement("li"); li.textContent=x;
+      if(si===1&&ii===1){
+        const box=document.createElement("div"); box.className="xtags";
+        EXTRA_TAGS.forEach(row=>{const r=document.createElement("p"); r.className="xrow"; r.textContent=row.join(" "); box.append(r);});
+        li.append(box);
+      }
+      ol.append(li)});
     s.append(h,ol); g.append(s);
   });
 }
